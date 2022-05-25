@@ -1,14 +1,13 @@
 <nav>
-  <button type="button">Nome do livro - Autor - seila</button>
-  <button type="button">Nome do livro - Autor - seila</button>
-  <button type="button">Nome do livro - Autor - seila</button>
-  <button type="button">Nome do livro - Autor - seila</button>
+  <button
+    *ngFor="let book of (book$ | async)?.items"
+    type="button"
+    (click)="selectBook(book)"
+  >
+    {{ book.volumeInfo.title }}
+    {{ book.volumeInfo.authors }}
+  </button>
 </nav>
-<main>
-  <div>Nome do livro - Autor - seila</div>
-  <div>Nome do livro - Autor - seila</div>
-  <div>Nome do livro - Autor - seila</div>
-  <div>Nome do livro - Autor - seila</div>
-</main>
+<main></main>
 
 <router-outlet></router-outlet>
