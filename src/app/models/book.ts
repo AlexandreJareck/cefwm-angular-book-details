@@ -13,7 +13,9 @@ class VolumeInfo {
     public subtitle: string,
     public pageCount: number,
     public categories: string[],
-    public imageLinks: ImageLinks
+    public imageLinks: ImageLinks,
+    public publishedDate: string,
+    public canonicalVolumeLink: string
   ) {}
 }
 

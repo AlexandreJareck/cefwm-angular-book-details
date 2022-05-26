@@ -1,1 +1,8 @@
-<p>list-book works!</p>
+<button
+  *ngFor="let book of (book$ | async)?.items"
+  type="button"
+  (click)="selectBook(book)"
+  class="fill"
+>
+  <p>{{ book.volumeInfo.title }}</p>
+</button>

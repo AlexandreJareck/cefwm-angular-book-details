@@ -4,14 +4,18 @@
 }
 
 nav {
-  flex: 10em 0 1;
+  flex: 12em 0 1;
 }
 main {
   flex: auto;
   text-align: center;
 }
 
-@media screen and (max-width: 30em) {
+h1 {
+  color: #3f3626;
+}
+
+@media screen and (max-width: 32em) {
   :host {
     flex-direction: column;
   }

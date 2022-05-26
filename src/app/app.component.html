@@ -1,13 +1,20 @@
 <nav>
-  <button
-    *ngFor="let book of (book$ | async)?.items"
-    type="button"
-    (click)="selectBook(book)"
-  >
-    {{ book.volumeInfo.title }}
-    {{ book.volumeInfo.authors }}
-  </button>
+  <app-list-book (seletedBook)="showBook($event)"></app-list-book>
 </nav>
-<main></main>
+<main *ngIf="showForBook">
+  <h1>{{ showForBook.volumeInfo.title }}</h1>
+  <p>{{ showForBook.volumeInfo.authors }}</p>
+  <p>Publicado em: {{ showForBook.volumeInfo.publishedDate }}</p>
+  <img
+    width="250"
+    height="350"
+    src="{{ showForBook.volumeInfo.imageLinks.thumbnail }}"
+  />
+  <p>
+    <a href="{{ showForBook.volumeInfo.canonicalVolumeLink }}" target="_blank"
+      >Site</a
+    >
+  </p>
+</main>
 
 <router-outlet></router-outlet>
