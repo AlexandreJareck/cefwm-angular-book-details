@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { delay, map, Observable, of } from 'rxjs';
-import { Book, Books } from '../models/book';
+import { Observable } from 'rxjs';
+import { Books } from '../models/books';
 
 @Injectable({
   providedIn: 'root',

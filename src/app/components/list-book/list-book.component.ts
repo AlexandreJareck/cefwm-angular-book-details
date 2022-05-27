@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { Book, Books } from 'src/app/models/book';
+import { Book } from 'src/app/models/book';
+import { Books } from 'src/app/models/books';
 import { BookService } from 'src/app/services/book.service';
 
 @Component({
@@ -23,7 +24,6 @@ export class ListBookComponent implements OnInit {
   ngOnInit(): void {}
 
   public selectBook(book: Book): void {
-    console.log(book);
     this.seletedBook.emit(book);
   }
 }
