@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Book } from './models/book';
+import { Books } from './models/books';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,17 @@ import { Book } from './models/book';
 export class AppComponent {
   title = 'book-details';
 
-  public showForBook?: Book;
+  public showForBooks?: Books;
 
-  public showBook(book: Book): void {
-    this.showForBook = book;
+  public showBook(books: Books): void {
+    this.showForBooks = books;
+  }
+
+  public showDescription(index: number): void {
+    if (!this?.showForBooks?.items[index]?.searchInfo?.textSnippet)
+      alert('Livro sem descrição!');
+
+    this.showForBooks!.items[index]!.visibleDescription =
+      !this.showForBooks!.items[index]!.visibleDescription;
   }
 }

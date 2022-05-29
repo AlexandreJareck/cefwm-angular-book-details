@@ -1,8 +1,10 @@
 <button
-  *ngFor="let book of (book$ | async)?.items"
+  *ngFor="let book of book$ | async; index as i"
   type="button"
-  (click)="selectBook(book)"
   class="fill"
+  (click)="selectBook(book)"
 >
-  <p>{{ book.volumeInfo.title }}</p>
+  <p *ngIf="i === 0">Romance</p>
+  <p *ngIf="i === 1">Ficção</p>
+  <p *ngIf="i === 2">Terror</p>
 </button>

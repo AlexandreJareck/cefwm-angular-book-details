@@ -11,19 +11,21 @@ import { BookService } from 'src/app/services/book.service';
 })
 export class ListBookComponent implements OnInit {
   @Output()
-  public seletedBook: EventEmitter<Book> = new EventEmitter();
+  public seletedBook: EventEmitter<Books> = new EventEmitter();
 
-  public book$: Observable<Books> = this.bookService.getBooks().pipe(
-    tap((book) => {
-      return book;
-    })
-  );
+  public book$: Observable<[Books, Books, Books]> = this.bookService
+    .getBooks()
+    .pipe(
+      tap((book) => {
+        return book;
+      })
+    );
 
   constructor(private bookService: BookService) {}
 
   ngOnInit(): void {}
 
-  public selectBook(book: Book): void {
-    this.seletedBook.emit(book);
+  public selectBook(books: Books): void {
+    this.seletedBook.emit(books);
   }
 }

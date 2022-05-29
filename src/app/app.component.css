@@ -3,15 +3,53 @@
   gap: 1em;
 }
 
+.container {
+  margin: 0 2rem 2rem 1rem;
+  display: flex;
+  width: 400px;
+}
+
+.wrapper {
+  flex: 1;
+  align-items: flex-start;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  line-height: 1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #222222;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s,
+    -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+  background: #fff;
+  color: #222222;
+  margin-top: 0.8rem;
+}
+
+.btn:hover {
+  border-color: #000000;
+  background: #f7f7f7;
+}
+
 nav {
   flex: 12em 0 1;
 }
+
 main {
-  flex: auto;
-  text-align: center;
+  max-width: 100%;
+  padding: 1rem;
 }
 
-h1 {
+h2 {
   color: #3f3626;
 }
 

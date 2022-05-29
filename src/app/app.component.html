@@ -1,20 +1,36 @@
 <nav>
   <app-list-book (seletedBook)="showBook($event)"></app-list-book>
 </nav>
-<main *ngIf="showForBook">
-  <h1>{{ showForBook.volumeInfo.title }}</h1>
-  <p>{{ showForBook.volumeInfo.authors }}</p>
-  <p>Publicado em: {{ showForBook.volumeInfo.publishedDate }}</p>
-  <img
-    width="250"
-    height="350"
-    src="{{ showForBook.volumeInfo.imageLinks.thumbnail }}"
-  />
-  <p>
-    <a href="{{ showForBook.volumeInfo.canonicalVolumeLink }}" target="_blank"
-      >Site</a
-    >
-  </p>
-</main>
+<div>
+  <main *ngFor="let showForBook of showForBooks?.items; index as i">
+    <div class="container flex-wrap">
+      <div class="wrapper">
+        <h2>{{ showForBook.volumeInfo.title }}</h2>
+        <p>{{ showForBook.volumeInfo.authors }}</p>
+        <p>Publicado em: {{ showForBook.volumeInfo.publishedDate }}</p>
+        <p>
+          <a
+            href="{{ showForBook?.volumeInfo?.canonicalVolumeLink }}"
+            target="_blank"
+            >Site</a
+          >
+        </p>
+        <button class="btn" type="button" (click)="showDescription(i)">
+          Ver descrição
+        </button>
+        <div>
+          <p *ngIf="showForBook.visibleDescription">
+            {{ showForBook?.searchInfo?.textSnippet }}
+          </p>
+        </div>
+      </div>
+      <img
+        width="150"
+        height="200"
+        src="{{ showForBook?.volumeInfo?.imageLinks?.thumbnail }}"
+      />
+    </div>
+  </main>
+</div>
 
 <router-outlet></router-outlet>
